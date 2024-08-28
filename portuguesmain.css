@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 5% 5% 0 5%;
+    background-color: #000000;
+    color: rgb(249, 68, 0);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    position: relative; /* Permite o posicionamento absoluto dos elementos filhos */
+    overflow: hidden;
+    min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
+}
+
+p {
+    font-size: 1.8rem;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: rgb(249, 68, 0); /* Garantir a cor laranja */
+    position: fixed; /* Fixa o elemento no rodapé da página */
+    left: 5%;
+    bottom: 5%; /* Mantém no canto inferior esquerdo */
+}
+
+.footer-text:hover {
+    font-weight: bold;
+}
+
+.bottom-right {
+    position: fixed; /* Alterado para fixed para alinhamento consistente */
+    top: 11%;
+    right: 5%;
+    font-size: 1.0rem;
+    line-height: 1.1;
+    text-align: right;
+    text-decoration: none; /* Remove sublinhado */
+    color: rgb(249, 68, 0); /* Cor do texto */
+}
+
+/* Estilo para dispositivos móveis */
+@media (max-width: 768px) {
+    p {
+        font-size: 1.1rem;
+        line-height: 1.2; /* Ajustado para melhorar legibilidade */
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+        margin-bottom: 2%; /* Cria espaçamento harmônico */
+        left: 5%; /* Margem alinhada à esquerda */
+        bottom: 5%; /* Margem alinhada ao rodapé */
+    }
+
+    .bottom-right {
+        display: none; /* Esconde a classe .bottom-right em dispositivos móveis */
+    }
+}
+
+/* Estilo do vídeo de fundo */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Mostra o vídeo quando a classe 'show-video' é adicionada */
+.show-video {
+    opacity: 1; /* Vídeo visível */
+}
+
+/* Estilo para desktop: mostra o vídeo apenas quando o cursor está sobre .hover-area */
+.hover-area:hover ~ .background-video {
+    opacity: 1;
+}
+
+/* Estilo para mobile: mantém o vídeo invisível por padrão */
+@media (max-width: 768px) {
+    .background-video {
+        opacity: 0; /* Inicialmente invisível */
+    }
+}
